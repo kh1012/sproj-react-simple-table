@@ -1,1 +1,0 @@
-# sproj-react-simple-table
