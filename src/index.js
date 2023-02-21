@@ -109,10 +109,6 @@ root.render(
 
     {/* EXAMPLE */}
     <ul>
-      {/* CLIENT SAMPLE 모델 OPEN / CLEINT - SERVER 연결 */}
-      <li style={{marginBottom: '10px'}}>
-        <a href={"https://naver.com"} target={"_blank"} rel="noreferrer">MIDAS 제품 - API SERVER 연결 방법</a>을 참고하여 <b>API 서버에 연결</b> 합니다.
-      </li>
       <li style={{marginBottom: '10px'}}>
         아래 Edit Box에 MAPI-Key를 넣고 <b>QueryString을 만들어 보세요.</b>
         <div style={{marginTop: '10px', marginBottom: '10px'}}>
