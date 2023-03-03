@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import "./index.css";
 
 // API를 사용하기 위한 기본적인 변수 및 함수
 const baseUrl = 'https://api-beta.rpm.kr-dv-midasit.com:443';
 const programType = 'gen';
+
+function checkExistQuerystring() {
+  const mapikeyQuery = getMapiKey();
+  console.log(mapikeyQuery);
+  if (mapikeyQuery === null) return;
+  const currentQueryStringDot = document.getElementById('current-querystring-dot');
+  currentQueryStringDot.style.backgroundColor = '#059669';
+  const currentQueryString = document.getElementById('current-querystring');
+  currentQueryString.innerHTML = `Current QueryString is ${mapikeyQuery}`;
+  currentQueryString.style.color = '#059669';
+  currentQueryString.style.fontWeight = '700';
+}
+
 function getMapiKey() {
   // url에서 params를 가져오고 mapikey를 get 합니다.
   const params = new URLSearchParams(window.location.search);
@@ -15,15 +29,6 @@ function makeQueryString() {
   const inputValue = document.getElementById('querystring-input').value;
   const queryString = '?mapikey=' + inputValue;
   document.getElementById('querystring-output').textContent = queryString;
-}
-
-// 만들어진 QueryString을 주소창에 적용 시켜주는 함수
-function queryStringToURL() {
-  const href = window.location.href;
-  if (!href.includes('?mapikey=')) {
-    window.location.href = 
-      window.location.origin + document.getElementById('querystring-output').textContent;
-  }
 }
 
 // MAPI-Key가 올바른지 확인하는 함수
@@ -101,40 +106,53 @@ async function getNodeFetch() {
   ReactDOM.createRoot(document.getElementById('getnode-output')).render(CreateTable({columns, rows}));
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <div>
-    {/* TITLE */}
-    <h1>HTML SIMPE TABLE</h1>
 
-    {/* EXAMPLE */}
-    <ul>
-      <li style={{marginBottom: '10px'}}>
-        아래 Edit Box에 MAPI-Key를 넣고 <b>QueryString을 만들어 보세요.</b>
-        <div style={{marginTop: '10px', marginBottom: '10px'}}>
-          <input type="text" id="querystring-input" />
-          <button type="button" style={{marginLeft: '10px'}} onClick={makeQueryString}>QueryString 만들기</button>
-          <pre id='querystring-output' style={{marginBottom: '10px'}}></pre>
-          <p>위 문자열을 복사해서 주소창에 직접 붙여넣기 + Enter 하시거나 <button type="button" onClick={queryStringToURL}>QueryString 적용하기 (To URL)</button>를 눌러주세요.</p>
-          <p>브라우저의 주소창을 보시면 mapikey가 적용된 걸 보실 수 있습니다.</p>
+function App() {
+  //아래 header, main, footer가 최초로 생성될 때 동작하는 함수입니다.
+  useEffect(() => { checkExistQuerystring(); }, []);
+
+  return (
+  <>
+    <header>
+      <h1 class="header-h1">Simple Table for MAPI-Key</h1>
+    </header>
+
+    <main>
+      <section>
+        <h3 class="main-sec1-h3">Quick Start</h3>
+        <p class="main-sec-p">Test it according to the procedure.</p>
+        <span id="current-querystring-dot"></span>
+        <p id="current-querystring" class="main-sec-p">Current QueryString is not exist.</p>
+      </section>
+
+      <section class="main-sec2">
+        <div class="main-sec2-wrapper">
+          <p class="main-sec-p main-purple-600">1. <b>Add MAPI-Key</b> to the Edit Box below and <b>create QueryString.</b></p>
+          <div class="main-sec2-col">
+            <input type="text" id="querystring-input" class="main-sec2-col-input" placeholder="Paste to MAPI-Key" />
+            <button type="button" onClick={makeQueryString} class="main-sec2-col-button">Create a QueryString</button>
+          </div>
+          <pre id='querystring-output'>. . .</pre>
+          <p class="main-sec-p main-purple-600">2. <b>Copy and paste</b> the above string directly into the address bar</p>
+          <img src="/img/copypaste.png" alt="" />
+          <p class="main-sec-p main-purple-600 main-p-default">3. <b>Make sure the MAPI-Key</b> is in the correct form.</p>
+          <button type="button" onClick={checkMapiKey} class="main-sec2-col-button">Verify MAPI-Key</button>
+          <pre id='status-output'>. . .</pre>
+          <p class="main-sec-p main-purple-600 main-p-default">4. Click the button below to <b>get NODE Data.</b></p>
+          <button type="button" onClick={getNodeFetch} class="main-sec2-col-button">GET NODE</button>
+          <pre id="getnode-output">. . .</pre>
         </div>
-      </li>
-      <li style={{marginBottom: '10px'}}>
-        MAPI-Key가 올바른 형태인지 확인하세요.
-        <div style={{marginTop: '10px'}}>
-          <button type="button" onClick={checkMapiKey}>MAPI-Key 확인</button>
-          <pre id='status-output'></pre>
-        </div>
-      </li>
-      {/* NODE 데이터를 TABLE로 출력 */}
-      <li>
-        <b>"GET"</b> NODE 정보를 가져와서 <b>테이블</b>로 출력합니다.
-        {/* TABLE 출력 */}
-        <div style={{marginTop: '10px'}}>
-          <button type="button" onClick={getNodeFetch}>GET NODE TABLE</button>
-          <div id="getnode-output" />
-        </div>
-      </li>
-    </ul>
-  </div>
-);
+      </section>
+    </main>
+
+    <footer>
+      <h3 class="footer-h3">-</h3>
+    </footer>
+  </>
+  );
+}
+
+// "index.html"의 <div>중 id="root"를 찾아옵니다.
+const root = ReactDOM.createRoot(document.getElementById('root'));
+// id="root"를 가진 div에 아래 html 코드를 렌더링 해줍니다.
+root.render(<App />);
