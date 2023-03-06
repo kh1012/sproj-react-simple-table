@@ -134,7 +134,7 @@ function App() {
           </div>
           <pre id='querystring-output'>. . .</pre>
           <p class="main-sec-p main-purple-600">2. <b>Copy and paste</b> the above string directly into the address bar</p>
-          <img src="/img/copypaste.png" alt="" />
+          <img src="img/copypaste.png" alt="" />
           <p class="main-sec-p main-purple-600 main-p-default">3. <b>Make sure the MAPI-Key</b> is in the correct form.</p>
           <button type="button" onClick={checkMapiKey} class="main-sec2-col-button">Verify MAPI-Key</button>
           <pre id='status-output'>. . .</pre>
