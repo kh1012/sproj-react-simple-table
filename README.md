@@ -5,6 +5,10 @@ HTML 대신 [React 라이브러리](https://ko.reactjs.org/) 를 사용하여 �
 전체적인 구조는 HTML과 비슷하지만, 고정 된 `index.html`에 `index.js`로 활력을 불어 넣어 보세요!
 <br /><br />
 
+## [Demo Page](https://kh1012.github.io/sproj-react-simple-table/build/index.html)
+위 링크를 클릭하시면 테스트 페이지를 보실 수 있습니다.
+<br /><br />
+
 ## Prerequisite
 
 해당 저장소를 사용하려면 [Getting Started With React](https://github.com/kh1012/sproj-prerequisite/tree/main/react)에 포함된 환경이 모두 구성되어 있어야 합니다. \
