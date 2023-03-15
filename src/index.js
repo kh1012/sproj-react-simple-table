@@ -129,19 +129,19 @@ function App() {
       <section class="main-sec2">
         <div class="main-sec2-wrapper">
           <div id="querystring-wrapper">
-            <p class="main-sec-p main-purple-600">1. <b>Add MAPI-Key</b> to the Edit Box below and <b>create QueryString.</b></p>
+            <p class="main-sec-p main-purple-600"><b>Add MAPI-Key</b> to the Edit Box below and <b>create QueryString.</b></p>
             <div class="main-sec2-col">
               <input type="text" id="querystring-input" class="main-sec2-col-input" placeholder="Paste to MAPI-Key" />
               <button type="button" onClick={makeQueryString} class="main-sec2-col-button">Create a QueryString</button>
             </div>
             <pre id='querystring-output'>. . .</pre>
-            <p class="main-sec-p main-purple-600">2. <b>Copy and paste</b> the above string directly into the address bar</p>
+            <p class="main-sec-p main-purple-600"><b>Copy and paste</b> the above string directly into the address bar</p>
             <img src="img/copypaste.png" alt="" />
           </div>
-          <p class="main-sec-p main-purple-600 main-p-default">3. <b>Make sure the MAPI-Key</b> is in the correct form.</p>
+          <p class="main-sec-p main-purple-600 main-p-default"><b>Make sure the MAPI-Key</b> is in the correct form.</p>
           <button type="button" onClick={checkMapiKey} class="main-sec2-col-button">Verify MAPI-Key</button>
           <pre id='status-output'>. . .</pre>
-          <p class="main-sec-p main-purple-600 main-p-default">4. Click the button below to <b>get NODE Data.</b></p>
+          <p class="main-sec-p main-purple-600 main-p-default">Click the button below to <b>get NODE Data.</b></p>
           <button type="button" onClick={getNodeFetch} class="main-sec2-col-button">GET NODE</button>
           <pre id="getnode-output">. . .</pre>
         </div>
