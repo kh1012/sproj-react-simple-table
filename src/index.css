@@ -178,3 +178,8 @@ td, th {
 th {
   background-color: #E5E7EB;
 }
+
+#querystring-wrapper {
+  display: flex;
+  flex-direction: column;
+}
