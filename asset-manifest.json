@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sproj-react-simple-table/static/css/main.a5507ec3.css",
-    "main.js": "/sproj-react-simple-table/static/js/main.1a4e0ee6.js",
+    "main.css": "/sproj-react-simple-table/static/css/main.dc775200.css",
+    "main.js": "/sproj-react-simple-table/static/js/main.1549620e.js",
     "index.html": "/sproj-react-simple-table/index.html",
-    "main.a5507ec3.css.map": "/sproj-react-simple-table/static/css/main.a5507ec3.css.map",
-    "main.1a4e0ee6.js.map": "/sproj-react-simple-table/static/js/main.1a4e0ee6.js.map"
+    "main.dc775200.css.map": "/sproj-react-simple-table/static/css/main.dc775200.css.map",
+    "main.1549620e.js.map": "/sproj-react-simple-table/static/js/main.1549620e.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5507ec3.css",
-    "static/js/main.1a4e0ee6.js"
+    "static/css/main.dc775200.css",
+    "static/js/main.1549620e.js"
   ]
 }
