@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import "./index.css";
 
 // API를 사용하기 위한 기본적인 변수 및 함수
-const baseUrl = 'https://api-beta.rpm.kr-dv-midasit.com:443';
+const baseUrl = 'https://api-beta.midasit.com:443';
 const programType = 'gen';
 
 function checkExistQuerystring() {
